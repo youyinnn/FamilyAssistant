@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app
+        version="3.0"
+        xmlns="http://java.sun.com/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+
+    <context-param>
+        <param-name>encoding</param-name>
+        <param-value>UTF-8</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>adminstrator</param-name>
+        <param-value>youyinnn</param-value>
+    </context-param>
+    
+    <context-param>
+        <param-name>adminpassword</param-name>
+        <param-value>znmdfamilyassistant</param-value>
+    </context-param>
+
+    <session-config>
+        <session-timeout>1440</session-timeout>
+    </session-config>
+
+    <listener>
+        <listener-class>listener.Log4JListener</listener-class>
+    </listener>
+    
+    <!--<listener>-->
+        <!--<listener-class>listener.SessionAttributeListener</listener-class>-->
+    <!--</listener>-->
+
+    <filter>
+        <filter-name>encodingFilter</filter-name>
+        <filter-class>filter.EncodingFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>encodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>visitorRecordFilter</filter-name>
+        <filter-class>filter.VisitorRecordFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>visitorRecordFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>indexFilter</filter-name>
+        <filter-class>filter.IndexFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>indexFilter</filter-name>
+        <url-pattern>/index.jsp</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>browserEquipFilter</filter-name>
+        <filter-class>filter.BrowserEquipFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>browserEquipFilter</filter-name>
+        <url-pattern>/view/*</url-pattern>
+        <url-pattern>/ss/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>businessFilter</filter-name>
+        <filter-class>filter.BusinessFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>businessFilter</filter-name>
+        <url-pattern>/lg/*</url-pattern>
+        <url-pattern>/us/*</url-pattern>
+        <url-pattern>/fs/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>transactionFilter</filter-name>
+        <filter-class>filter.TransactionFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>transactionFilter</filter-name>
+        <url-pattern>/lg/*</url-pattern>
+        <url-pattern>/us/*</url-pattern>
+        <url-pattern>/fs/*</url-pattern>
+        <url-pattern>/ss/*</url-pattern>
+    </filter-mapping>
+</web-app>

@@ -1,0 +1,4 @@
+2017-02-13 23:00:42  [ db.DBUtils.getConn(DBUtils.java:39) ] - [ INFO ]  [ MESSAGE : Get connection ! ]
+
+2017-02-13 23:12:50  [ db.DBUtils.getConn(DBUtils.java:39) ] - [ INFO ]  [ MESSAGE : Get connection ! ]
+
