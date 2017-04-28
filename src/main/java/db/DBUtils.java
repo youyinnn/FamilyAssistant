@@ -25,7 +25,14 @@ public class DBUtils {
 
     static {
         Properties properties = new Properties();
-        InputStream inputStream = DBUtils.class.getClassLoader().getResourceAsStream("dbcp.properties");
+        Properties syspro = System.getProperties();
+        String os_name = syspro.getProperty("os.name");
+        InputStream inputStream;
+        if (os_name.contains("Windows")){
+            inputStream = DBUtils.class.getClassLoader().getResourceAsStream("wdbcp.properties");
+        }else {
+            inputStream = DBUtils.class.getClassLoader().getResourceAsStream("ldbcp.properties");
+        }
         try {
             properties.load(inputStream);
             dataSource = BasicDataSourceFactory.createDataSource(properties);
