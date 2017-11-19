@@ -108,12 +108,12 @@ public class UserSystemDaoImpl implements UserSystemDao {
 
     @SuppressWarnings("unchecked")
     @Override
-    public String showFriendInformation(int id) {
+    public String showFriendInformation(int f_id) {
 
         User user = (User) BaseDao.getInstance().queryOne(Table_User.TABLE_NAME,Table_User.COLUMN_ID,
-                        id,Table_User.FRIEND_MESSAGE_COLUMN_LIST,User.class);
+                        f_id,Table_User.FRIEND_MESSAGE_COLUMN_LIST,User.class);
 
-        LOGGER.info("Show info of friend :"+id+" !");
+        LOGGER.info("Show info of friend :"+f_id+" !");
 
         return JSON.toJSONString(user);
     }

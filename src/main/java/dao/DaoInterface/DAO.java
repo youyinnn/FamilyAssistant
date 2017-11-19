@@ -8,6 +8,7 @@ import java.util.Map;
  */
 public interface DAO<T> {
 
+
     /**
      * 返回tableName表下所有字段的所有记录
      * @param tableName : 要查询的表名

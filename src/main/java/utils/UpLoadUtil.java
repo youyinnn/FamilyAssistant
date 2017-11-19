@@ -24,11 +24,11 @@ public class UpLoadUtil {
     /**
      * 处理以格式enctype="multipart/form-data"传过来的数据 以键值对的形式存如map中并返回
      * @param items
-     * @param usernome
+     * @param username
      * @return
      * @throws IOException
      */
-    public static Map<String,Object> getMap(List<FileItem> items,String usernome) throws IOException {
+    public static Map<String,Object> getMap(List<FileItem> items,String username) throws IOException {
         Map<String,Object> fieldMap = new HashMap<>();
         for (FileItem item : items){
             if (item.isFormField()){
@@ -43,7 +43,7 @@ public class UpLoadUtil {
 
                 fieldMap.put("portraitInputStream",in);
 
-                String portrait_directory_path = usernome+"Portrait/";
+                String portrait_directory_path = username+"Portrait/";
 
                 String portrait_url = portrait_directory_path+fieldMap.get("username")+".jpg";
 
@@ -55,8 +55,9 @@ public class UpLoadUtil {
             }
         }
 
-        if (fieldMap.containsKey("equip"))
-         fieldMap.remove("equip");
+        if (fieldMap.containsKey("equip")){
+            fieldMap.remove("equip");
+        }
         return fieldMap;
     }
 

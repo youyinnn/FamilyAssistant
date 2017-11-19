@@ -44,7 +44,7 @@ public class BaseDao<T> implements DAO<T> {
         try {
             connection = ConnectionContext.getInstance().get();
 
-            list = queryRunner.query(connection,sql,new BeanListHandler<T>(tClass));
+            list = queryRunner.query(connection,sql,new BeanListHandler<>(tClass));
         } catch (SQLException e) {
             LOGGER.error("Query list for all message failure !",e);
             throw new RuntimeException(e);

@@ -20,7 +20,7 @@ import java.util.*;
  */
 public class BaseDaoTest {
 
-    Connection connection = null;
+    private Connection connection = null;
 
     @Before
     public void before() throws SQLException {
@@ -129,9 +129,9 @@ public class BaseDaoTest {
     @Test
     public void getValue() throws Exception {
 
-        String value = (String) BaseDao.getInstance().getValue(Table_User.TABLE_NAME,Table_User.COLUMN_ID,3,Table_User.COLUMN_ADDRESS);
+        //String value = (String) BaseDao.getInstance().getValue(Table_User.TABLE_NAME,Table_User.COLUMN_ID,3,Table_User.COLUMN_ADDRESS);
 
-        System.out.println(value);
+        //System.out.println(value);
     }
 
 }

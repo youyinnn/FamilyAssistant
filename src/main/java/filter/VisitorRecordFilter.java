@@ -17,6 +17,7 @@ public class VisitorRecordFilter extends HttpFilter {
 
     @Override
     public void doFilter(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws ServletException, IOException {
+
         String remoteAddr = request.getRemoteAddr();
 
         NDC.push(remoteAddr);

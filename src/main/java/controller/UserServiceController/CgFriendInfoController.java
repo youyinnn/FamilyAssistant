@@ -37,6 +37,9 @@ public class CgFriendInfoController extends HttpServlet {
 
         fieldMap.remove("equip");
 
+        System.out.println(queryMap);
+        System.out.println(fieldMap);
+
         boolean finishMark = CgFriendInfoService.cgFriendInfoHandler(queryMap,fieldMap);
 
         resp.getWriter().print(finishMark);
