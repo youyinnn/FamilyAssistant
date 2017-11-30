@@ -10,9 +10,11 @@ import java.io.IOException;
  */
 public abstract class HttpFilter implements Filter {
     
+    @Override
     public void destroy() {
     }
 
+    @Override
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws ServletException, IOException {
 
         HttpServletRequest request = (HttpServletRequest) req;
@@ -25,6 +27,7 @@ public abstract class HttpFilter implements Filter {
 
     private FilterConfig filterConfig;
 
+    @Override
     public void init(FilterConfig config) throws ServletException {
         this.filterConfig = config;
         init();
